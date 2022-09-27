@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>GitHub代码提交失败</title>
+      <link href="/2022/09/27/GitHub%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%A4%B1%E8%B4%A5/"/>
+      <url>/2022/09/27/GitHub%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%A4%B1%E8%B4%A5/</url>
+      
+        <content type="html"><![CDATA[<p><a href="http://www.choupangxia.com/2021/05/18/git-error/">参考文章</a></p><h2 id="Git操作失败场景"><a href="#Git操作失败场景" class="headerlink" title="Git操作失败场景"></a>Git操作失败场景</h2><p>原来项目中使用Git是正常的，无论是GitHub的项目还是码云的项目，都是可以正常pull和push的。但当将Mac Book的操作系统升级之后，发现Git无法执行pull和push操作，add和commit操作都还是正常的。</p><h2 id="网络上的状况和解决方案"><a href="#网络上的状况和解决方案" class="headerlink" title="网络上的状况和解决方案"></a>网络上的状况和解决方案</h2><p>如果你不是因为升级操作系统导致的git失效，你可以先尝试一下网络上的解决方案。</p><h3 id="场景一"><a href="#场景一" class="headerlink" title="场景一"></a>场景一</h3><p>在命令行执行以下命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy </span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>有关GitHub无法访问问题</title>
+      <link href="/2022/09/27/%E6%9C%89%E5%85%B3GitHub%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/09/27/%E6%9C%89%E5%85%B3GitHub%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_27415615/article/details/124791034?ops_request_misc=&request_id=&biz_id=102&utm_term=github%E5%AE%98%E7%BD%91%E8%BF%9B%E4%B8%8D%E5%8E%BB&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-124791034.nonecase&spm=1018.2226.3001.4187">参考资料</a></p><p>用<a href="https://tool.chinaz.com/dns?type=1">IP地址查找工具1</a>或者<a href="https://www.ipaddress.com/">IP地址查找工具2</a>将查找的ip地址通过<a href="http://www.electronjs.org/apps/switchhosts">switchhosts（hosts切换工具）</a>更改本地hosts的方式</p><h1 id="第一步：ping一下Github的官网，测试网络连通性"><a href="#第一步：ping一下Github的官网，测试网络连通性" class="headerlink" title="第一步：ping一下Github的官网，测试网络连通性"></a>第一步：ping一下Github的官网，测试网络连通性</h1><p>如果进不去Github官网的话，当你用ping工具执行ping github.com命令时，显示的TTL很高或者提示“请求超时”，我的是请求超时</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/27188772/1664210519497-5dfabb33-f342-468b-b1e2-4ef3e48aad41.png" alt="img"></p><p>如果当你通过第一步发现ping giithub.com的网速显示请求超时的时候，接下来进行第二步；</p><h1 id="第二步：修改hosts文件（用hosts切换工具方便一点，前言里有）"><a href="#第二步：修改hosts文件（用hosts切换工具方便一点，前言里有）" class="headerlink" title="第二步：修改hosts文件（用hosts切换工具方便一点，前言里有）"></a>第二步：修改hosts文件（用hosts切换工具方便一点，前言里有）</h1><p>没有hosts切换工具的，在如下位置找到hosts并手动修改（直接保存可能存在权限问题，百度一下解决）</p><hr><p>Windows 系统位于 C:\Windows\System32\drivers\etc<br>Android（安卓）系统hosts位于 /etc/<br>Mac（苹果电脑）系统hosts位于 /etc/<br>iPhone（iOS）系统hosts位于 /etc/<br>Linux系统hosts位于 /etc/<br>绝大多数Unix系统都是在 /etc/</p><p>在hosts文件最后加上以下内容（一般以追加的方式修改）</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2022/09/26/hello-world/"/>
+      <url>/2022/09/26/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
