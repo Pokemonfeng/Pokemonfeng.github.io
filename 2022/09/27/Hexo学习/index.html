@@ -320,6 +320,24 @@
 <td align="left">Inherited from <code>_config.yml</code></td>
 </tr>
 </tbody></table>
+<h2 id="Hexo插入图片"><a href="#Hexo插入图片" class="headerlink" title="Hexo插入图片"></a>Hexo插入图片</h2><p>版本：Hexo5.0.2（Hexo3以上即可）</p>
+<p>解决方案如下：</p>
+<p>修改配置文件</p>
+<ul>
+<li>  在根目录下配置文件_config.yml 中有 post_asset_folder:false改为true。</li>
+<li>  这样在建立文件时，Hexo会自动建立一个与文章同名的文件夹，这样就可以把与该文章相关的所有资源（图片）都放到那个文件夹里方便后面引用</li>
+<li>  我这里放的图片是：vite.jpg</li>
+<li>  安装插件：hexo-asset-image</li>
+</ul>
+<p><code>npm install https://github.com/7ym0n/hexo-asset-image --save（使用cnpm速度相当会快点，当然npm也可以滴）</code></p>
+<ul>
+<li>  使用这个插件来引入图片，而不是网上那些方法里说的用传统md语法相对路径的方法。</li>
+<li>  插入图片时用这种方式：</li>
+</ul>
+<p><code>&#123;% asset_img vite.jpg This is an test image %&#125;</code></p>
+<ul>
+<li>  其中vite.jpg就是你要引用的图片，我这里就是vite.jpg，后面的This is an test image是图片描述，可以自己修改。</li>
+</ul>
 <h1 id="4-部署到GitHub"><a href="#4-部署到GitHub" class="headerlink" title="4. 部署到GitHub"></a>4. 部署到GitHub</h1><p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
@@ -482,11 +500,11 @@
             <ul class="statistics">
                 <li>
                     <span>文章</span>
-                    <a href="./archives">6</a>
+                    <a href="./archives">7</a>
                 </li>
                 <li>
                     <span>字数</span>
-                    <a>16.9k</a>
+                    <a>19.8k</a>
                 </li>
                 <li>
                     <span>访客</span>
@@ -511,7 +529,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
     </div>
   </div>
 
@@ -522,6 +540,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul class="recent-posts">
+        
+          <li>
+            <a href="/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/">Webpack学习</a>
+          </li>
         
           <li>
             <a href="/2023/03/06/Vue3%E5%88%9D%E5%AD%A6%E4%B9%A0/">Vue3初学习</a>
@@ -537,10 +559,6 @@
         
           <li>
             <a href="/2022/09/27/GitHub%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%A4%B1%E8%B4%A5/">GitHub代码提交失败</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/27/%E6%9C%89%E5%85%B3GitHub%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98/">有关GitHub无法访问问题</a>
           </li>
         
       </ul>
