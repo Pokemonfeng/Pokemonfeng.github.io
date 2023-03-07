@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>
+    网络模块封装 | pika的博客空间
+  </title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta name="theme-color" content="#4184f3">
+  
+  
+  <link href="https://shuxhan-imgbed.oss-cn-hangzhou.aliyuncs.com/img/20210108143023.png" rel="icon" />
+  
+
+  
+<link rel="stylesheet" href="/css/highlight.light.css">
+
+  
+<link rel="stylesheet" href="/css/prism-customize.css">
+
+  
+<link rel="stylesheet" href="/css/nav-icon.css">
+
+  
+<link rel="stylesheet" href="/css/waves.min.css">
+
+  
+<link rel="stylesheet" href="/css/jquery.tocify.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/nav-indicator.css">
+
+  
+<link rel="stylesheet" href="/css/twikoo.css">
+
+  
+<link rel="stylesheet" href="/css/search.css">
+
+  
+  
+
+  
+
+  </meta>
+  </meta>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  
+<script src="/js/comment.js"></script>
+
+  
+<script src="/js/copy.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+	<body>
+		<header>
+			<!-- cover image or sth. -->
+		</header>
+		<div id="main" class="m-scene">
+			
+<div class="nav-wrapper" id="header">
+
+    <div class="container">
+        <nav>
+            
+            
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    pika的博客空间
+                </a>
+            </div>
+
+            
+
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/">
+                                首页
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/archives">
+                                归档
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/about">
+                                关于
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/message">
+                                留言
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/search">
+                                搜索
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+
+        </nav>
+    </div>
+</div>
+
+
+				<div class="container content">
+					<div class="scene_element scene_element--fadein">
+						<div class="row">
+  <div class="main main-article">
+    <article>
+
+      
+        <header class="post-header no-cover">
+      
+        </header>
+
+      <!-- 标题 -->
+      <h1 class="post-title">
+        网络模块封装
+      </h1>
+
+      <section class="post-info post-info-bottom">
+
+        <!-- 发布时间 -->
+        <span class="post-date">
+          <span class="post-date-text">
+            发布于: 2023-03-07
+          </span>
+        </span>
+        
+        <!-- 分类 -->
+        
+
+        <!-- 标签 -->
+        
+
+        <!-- 阅读量统计 -->
+        
+
+      </section>
+
+      <!-- 正文 -->
+      <section class="post-content">
+        <h1 id="一、主要内容"><a href="#一、主要内容" class="headerlink" title="一、主要内容"></a>一、主要内容</h1><ul>
+<li>  常见的网络请求模块，以及优缺点对比</li>
+<li>  JSONP的原理和封装</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  JSONP原理回顾</li>
+<li>  JDONP请求封装</li>
+</ul>
+</li>
+</ul>
+<!---->
+
+<ul>
+<li>  axios的内容详解</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  认识axios网络模块</li>
+<li>  发送基本请求</li>
+<li>  axios创建实例</li>
+<li>  axios拦截器的使用</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、-选择什么网络模块"><a href="#二、-选择什么网络模块" class="headerlink" title="二、 选择什么网络模块"></a>二、 选择什么网络模块</h1><img src="/2023/03/07/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9D%97%E5%B0%81%E8%A3%85/a.png" class title="图片">
+
+<h2 id="1-JSONP"><a href="#1-JSONP" class="headerlink" title="1. JSONP"></a>1. JSONP</h2><img src="/2023/03/07/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9D%97%E5%B0%81%E8%A3%85/b.png" class title="图片">
+
+<img src="/2023/03/07/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9D%97%E5%B0%81%E8%A3%85/c.png" class title="图片">
+
+<h2 id="2-axios"><a href="#2-axios" class="headerlink" title="2. axios"></a>2. axios</h2><ul>
+<li>  功能特点</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  在浏览器中发送XMLHttpRequests请求</li>
+<li>  在node.js中发送http请求</li>
+<li>  支持Promise API</li>
+<li>  拦截请求和响应</li>
+<li>  转换请求和响应数据</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、axiox"><a href="#三、axiox" class="headerlink" title="三、axiox"></a>三、axiox</h1><ul>
+<li>  <strong>支持多种请求方式</strong></li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  axios(config)</li>
+<li>  axios.request(config)</li>
+<li>  axios.get(url[,config])</li>
+<li>  axios.delete(url[,config])</li>
+<li>  axios.head(url,[data[,config]])</li>
+<li>  axios.put(url[,data[,config]])</li>
+<li>  axios.put(url[,data[,config]])</li>
+<li>  axios.patch(url[,data[,config]])</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><ul>
+<li>  <strong>npm install axios –save</strong></li>
+</ul>
+<hr>
+<h2 id="2-发送并发请求"><a href="#2-发送并发请求" class="headerlink" title="2. 发送并发请求"></a>2. 发送并发请求</h2><ul>
+<li>  有时候，我们可能需要同时发送两个请求</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  使用axios.all，可以放入多个请求的数组</li>
+<li>  axios.all([])返回的结果时一个数组，使用axios.spread可将数组[res1,res2]展开为res1,res2</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">axios.all([axios(&#123;</span><br><span class="line">  url:&#x27;http://123.207.32.32:8000/home/multidata&#x27;</span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">  url:&#x27;http://123.207.32.32:8000/home/data&#x27;,</span><br><span class="line">  params: &#123;</span><br><span class="line">    type: &#x27;sell&#x27;,</span><br><span class="line">    page: 5</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)]).then(axios.spread((res1, res2) =&gt; &#123;</span><br><span class="line">  console.log(res1);</span><br><span class="line">  console.log(res2);</span><br><span class="line">&#125;))</span><br><span class="line">// .then(results =&gt; &#123;</span><br><span class="line">//   console.log(results)</span><br><span class="line">// &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-全局配置"><a href="#3-全局配置" class="headerlink" title="3.全局配置"></a>3.全局配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.baseURL = &#x27;http://123.207.32.32:8000&#x27;</span><br><span class="line">axios.defaults.timeout = 5000</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-常见的配置选项"><a href="#3-1-常见的配置选项" class="headerlink" title="3.1 常见的配置选项"></a>3.1 常见的配置选项</h3><ul>
+<li>  请求地址</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  <strong>url:’/user’,</strong></li>
+</ul>
+</li>
+</ul>
+<!---->
+
+<ul>
+<li>  请求类型</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  <strong>method：‘get’</strong></li>
+</ul>
+</li>
+</ul>
+<!---->
+
+<ul>
+<li>  请根路径</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  <strong>baseURL ：’http://……….‘</strong></li>
+</ul>
+</li>
+</ul>
+<!---->
+
+<ul>
+<li>  请求前的数据处理</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  <strong>transformRequest:[function(data){}]</strong></li>
+</ul>
+</li>
+</ul>
+<!---->
+
+<ul>
+<li>  请求后的数据处理</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  <strong>transformResponse:[function(data){}]</strong></li>
+</ul>
+</li>
+</ul>
+<!---->
+
+<ul>
+<li>  自定义的请求头</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  <strong>headers:{‘x-Requested-With’:’XMLHttpRequest’}</strong></li>
+</ul>
+</li>
+</ul>
+<!---->
+
+<ul>
+<li>  URL查询对象</li>
+</ul>
+<!---->
+
+<ul>
+<li><ul>
+<li>  <strong>params：{id:12}</strong></li>
+</ul>
+</li>
+</ul>
+<img src="/2023/03/07/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9D%97%E5%B0%81%E8%A3%85/d.png" class title="图片">
+
+<h2 id="4-axios封装"><a href="#4-axios封装" class="headerlink" title="4. axios封装"></a>4. axios封装</h2><h3 id="1-直接使用"><a href="#1-直接使用" class="headerlink" title="1.直接使用"></a>1.直接使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">  url: &#x27;http://123.207.32.32:8000/home/multidata&#x27;,</span><br><span class="line">  method: &#x27;get&#x27;</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">  console.log(res);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">axios(&#123;</span><br><span class="line">  url: &#x27;http://123.207.32.32:8000/home/data&#x27;,</span><br><span class="line">  params: &#123;</span><br><span class="line">    type: &#x27;pop&#x27;,</span><br><span class="line">    page: 1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">  console.log(res);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">3. 使用全局的axios和对应的配置在进行网络请求</span><br><span class="line">axios.defaults.baseURL = &#x27;http://123.207.32.32:8000&#x27;</span><br><span class="line">axios.defaults.timeout = 5000</span><br><span class="line"></span><br><span class="line">// 2.axios发送并请求</span><br><span class="line">axios.all([axios(&#123;</span><br><span class="line">  url:&#x27;/home/multidata&#x27;</span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">  url:&#x27;/home/data&#x27;,</span><br><span class="line">  params: &#123;</span><br><span class="line">    type: &#x27;sell&#x27;,</span><br><span class="line">    page: 5</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)]).then(axios.spread((res1, res2) =&gt; &#123;</span><br><span class="line">  console.log(res1);</span><br><span class="line">  console.log(res2);</span><br><span class="line">&#125;))</span><br><span class="line">.then(results =&gt; &#123;</span><br><span class="line">  console.log(results)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">4. 常见对应的axios实例</span><br><span class="line">const instance1 = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;http://123.207.32.32:8000&#x27;,</span><br><span class="line">  timeout: 5000</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">instance1(&#123;</span><br><span class="line">  url: &#x27;./home/multidata&#x27;,</span><br><span class="line">  params: &#123;</span><br><span class="line">    type: &#x27;pop&#x27;,</span><br><span class="line">    page: 1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const instance2 = axios.create(&#123;</span><br><span class="line">  baseURL: &#x27;http://123.207.32.32:8000&#x27;,</span><br><span class="line">  timeout: 10000,</span><br><span class="line">  // headers:&#123;&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">instance2(&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-封装"><a href="#2-封装" class="headerlink" title="2. 封装"></a>2. 封装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line"></span><br><span class="line">// export function request(config, success, failure) &#123;</span><br><span class="line">//   // 1.创建axios的实例</span><br><span class="line">//   const instance = axios.create(&#123;</span><br><span class="line">//     baseURL: &#x27;http://123.207.32.32:8000&#x27;,</span><br><span class="line">//     timeout: 5000,</span><br><span class="line">//   &#125;)</span><br><span class="line"></span><br><span class="line">//   // 发送真正的网络请求</span><br><span class="line">//   instance(config)</span><br><span class="line">//   .then(res =&gt; &#123;</span><br><span class="line">//     // console.log(res)</span><br><span class="line">//     success(res)</span><br><span class="line">//   &#125;)</span><br><span class="line">//   .catch(err =&gt; &#123;</span><br><span class="line">//     // console.log(&#x27;err&#x27;)</span><br><span class="line">//     failure(err)</span><br><span class="line">//   &#125;)</span><br><span class="line">// &#125;</span><br><span class="line">// export function instance1() &#123;</span><br><span class="line"></span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">// export function request(config) &#123;</span><br><span class="line">//   return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">//     // 1. 创建axios的实例</span><br><span class="line">//     const instance = axios.create(&#123;</span><br><span class="line">//       baseURL: &#x27;http://123.207.32.32:8000&#x27;,</span><br><span class="line">//       timeout: 5000</span><br><span class="line">//     &#125;)</span><br><span class="line"></span><br><span class="line">//     // 发送真正的网络请求</span><br><span class="line">//     instance(config)</span><br><span class="line">//     .then(res =&gt; &#123;</span><br><span class="line">//       resolve(res)</span><br><span class="line">//     &#125;)</span><br><span class="line">//     .catch(err =&gt; &#123;</span><br><span class="line">//       reject(err)</span><br><span class="line">//     &#125;)</span><br><span class="line">//   &#125;)</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export function request(config) &#123;</span><br><span class="line">    // 1. 创建axios的实例</span><br><span class="line">    const instance = axios.create(&#123;</span><br><span class="line">      baseURL: &#x27;http://123.207.32.32:8000&#x27;,</span><br><span class="line">      timeout: 5000</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    // 发送真正的网络请求</span><br><span class="line">    return instance(config)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 5.封装request模块</span><br><span class="line">import &#123;request&#125; from &#x27;./network/request&#x27;</span><br><span class="line"></span><br><span class="line">// request(&#123;</span><br><span class="line">//   url: &#x27;/home/multidata&#x27;</span><br><span class="line">// &#125;), res =&gt; &#123;</span><br><span class="line">//   console.log(res);</span><br><span class="line">// &#125;, err =&gt; &#123;</span><br><span class="line">//   console.log(err)</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">request(&#123;</span><br><span class="line">  url: &#x27;/home/multidata&#x27;</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">  console.log(res)</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">  console.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-拦截器"><a href="#5-拦截器" class="headerlink" title="5. 拦截器"></a>5. 拦截器</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 2. axios的拦截器</span><br><span class="line">    // 2.1.请求拦截</span><br><span class="line">    instance.interceptors.request.use(config =&gt; &#123;</span><br><span class="line">      console.log(config);</span><br><span class="line">      return config</span><br><span class="line">      // 1.比如config中的一些信息不符合服务器的要求</span><br><span class="line"></span><br><span class="line">      // 2.比如每次发送网络请求时，在页面显示一个请求图标</span><br><span class="line"></span><br><span class="line">      // 3.某些网络请求（比如登录（token）），必须携带一些特殊的信息</span><br><span class="line">    &#125;,err =&gt; &#123;</span><br><span class="line">      console.log(err);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    // 2.2.响应拦截</span><br><span class="line">    instance.interceptors.response.use(res =&gt; &#123;</span><br><span class="line">      console.log(res);</span><br><span class="line">      return res.data</span><br><span class="line">    &#125;,err =&gt; &#123;</span><br><span class="line">      console.log(err)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+      </section>
+
+    </article>
+    
+    
+
+
+    <!-- 版权声明 -->
+    <div class="post-copyright">
+	<div>
+		<strong>本文作者：</strong>
+		<span>
+			ChenZF
+		</span>
+	</div>
+	<div>
+		<strong>本文链接：</strong>
+		<a href="http://example.com/网络模块封装">
+			http://example.com/post/网络模块封装
+		</a>
+	</div>
+	<div>
+		<span>欢迎任何形式的转载，但请务必注明出处。</span>
+	</div>
+	<div>
+		<span>由于笔者水平有限，如果文章或代码有表述不当之处，还请不吝赐教。</span>
+	</div>
+</div>
+
+
+<style>
+	.post-copyright {
+		background-color: #fff;
+		/* box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.05); */
+		box-shadow: 0 6px 30px -10px rgba(0, 0, 0, 0.1);
+		display: block;
+		margin: 20px auto;
+		margin-bottom: 15px;
+		padding: 10px;
+		font-size: 15px;
+		color: #2e2d2d;
+		word-break: break-all;
+		line-height: 1.8;
+	}
+
+
+	.post-copyright a {
+		color: #2e2d2d;
+		border-bottom: 1px solid #999;
+	}
+
+	.post-copyright a:hover {
+		color: #2e2d2d;
+		border-bottom: 1px solid #000;
+	}
+</style>
+
+    <!-- comments -->
+    <div class="comments">
+    <h3 id="commenttitle" style="margin-top: 20px;margin-left: 10px;">评论区</h3>
+    <div id="tcomment"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.0.0/dist/twikoo.all.min.js"></script>
+<script>twikoo.init({ envId: 'pika-2gcz5b7m7f845ec3', el: '#tcomment' })</script>
+
+    <div class="right-icon">
+      <div id="to-valine" class="right-icon-item">
+        <a href="#commenttitle">评论</a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <aside>
+    <div class="aside-wrap">
+    
+        <section class="widget-wrap">
+    <h3 class="widget-title">简介</h3>
+    <div class="widget">
+        <div class="notice">
+            <img class="notice-img" src="http://riukjvybq.hn-bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+            <p>一个前端程序员的<br>编程笔记和生活记录！</p>
+            
+            <p class="notice-item">
+                <!-- github -->
+                <span><a target="_blank" href="https://github.com/Pokemonfeng"><img src="http://riukjvybq.hn-bkt.clouddn.com/github.46c47564.png" alt="Github"></a></span>
+                <!-- juejin -->
+                <span><a target="_blank" href="https://juejin.cn/user/2243476206137950"><img src="http://riukjvybq.hn-bkt.clouddn.com/favicon.ico" alt="掘金社区"></a></span>
+                <!-- zhihu -->
+                <!-- <span><a target="_blank" href=""><img src="https://shuxhan-imgbed.oss-cn-hangzhou.aliyuncs.com/img/20210108172745.ico" alt="知乎"></a></span> -->
+                <!-- csdn -->
+                <span><a target="_blank" href="https://blog.csdn.net/weixin_47017046"><img src="http://riukjvybq.hn-bkt.clouddn.com/csdn.9c2b2075.png" alt="CSDN"></a></span>
+            </p>
+
+            <ul class="statistics">
+                <li>
+                    <span>文章</span>
+                    <a href="./archives">9</a>
+                </li>
+                <li>
+                    <span>字数</span>
+                    <a>21.2k</a>
+                </li>
+                <li>
+                    <span>访客</span>
+                    <a id="busuanzi_value_site_uv"></a>
+                </li>
+                
+                
+            </ul>
+
+            <div id="follow" class="button">
+                <a target="_blank" href="https://github.com/Pokemonfeng">关注</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+        
+
+    
+        
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neilify/" rel="tag">Neilify</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/" rel="tag">node.js</a></li></ul>
+    </div>
+  </div>
+
+
+    
+        
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul class="recent-posts">
+        
+          <li>
+            <a href="/2023/03/07/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9D%97%E5%B0%81%E8%A3%85/">网络模块封装</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/07/Netlify%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/">Netlify前端自动化部署服务</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/">Webpack学习</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/06/Vue3%E5%88%9D%E5%AD%A6%E4%B9%A0/">Vue3初学习</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/05/Node-js%E5%AD%A6%E4%B9%A0/">Node.js学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+        
+  <section class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li></ul>
+    </div>
+  </section>
+
+
+    
+        <!-- 
+  <section class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div>
+      <ul class="widget-links">
+          
+          <li>
+              <a target="_blank" rel="noopener" href="https://pokemonfeng.github.io/" title="">
+                  pika的博客空间
+              </a>
+          </li>
+          
+      </ul>
+    </div>
+  </section>
+
+
+<style>
+  .widget-links {
+    list-style: none;
+    padding-left: 10px;
+  }
+  .widget-links >li > a:hover {
+    color: #f40;
+    text-decoration: underline;
+  }
+</style> -->
+    
+    
+</div>
+
+
+    <!-- 目录 -->
+    
+  </aside>
+  
+</div>
+
+					</div>
+				</div>
+
+				<!-- 返回顶部按钮 -->
+				<div class="right-icon">
+					<div id="to-top" class="right-icon-item">
+						<a>
+							<span class="top-left"></span>
+							<span class="top-right"></span>
+						</a>
+					</div>
+				</div>
+		</div>
+		<footer class="footer">
+
+    <div class="copyright-wrap">
+      <span>&copy; 2022-2023 ChenZF</span>
+      <span id="timeDate">载入天数...</span><span id="busuanzi_container_site_pv">
+      总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    
+</div>
+    
+    
+    <!-- <span id="busuanzi_container_site_uv">
+      ，本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span> -->
+    
+</footer>
+
+<script>
+    var now = new Date();
+    function createtime() {
+      var grt = new Date("09/27/2022 11:00:00");//此处修改你的建站时间或者网站上线时间 
+      now.setTime(now.getTime() + 250);
+      days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+      document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+    }
+    setInterval("createtime()", 1000);
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/lib/jquery.js"></script>
+
+
+<script src="/lib/waves.js"></script>
+
+
+<script src="/lib/jquery-ui.js"></script>
+
+
+<script src="/lib/jquery.tocify.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+			
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgb(206, 206, 206);
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 3px;
+    user-select: none;
+    outline: 0;
+  }
+
+  .copy-btn:hover {
+    color: #888
+  }
+
+  .highlight-wrap .copy-btn {
+    padding: 2px 6px;
+    position: absolute;
+    right: 10px;
+    top: 1px;
+    z-index: 1;
+  }
+
+
+
+  .highlight-wrap {
+    position: relative;
+  }
+
+  #copysuccess {
+    width: 200px;
+    height: 75px;
+    position: fixed;
+    right: 50%;
+    margin-right: -100px;
+    top: 40%;
+    margin-top: -40px;
+    color: #fff;
+    font-weight: 600;
+    background: #444444d8;
+    display: none;
+    z-index: 99999;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+    padding-top: 10px;
+    user-select: none;
+  }
+</style>
+
+<script>
+  addLoadEvent(() => {
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<div>').addClass('copy-btn').append('复制代码').on('click', function (e) {
+        var copysuccess = document.getElementById('copysuccess');
+        copysuccess.style.display = 'block'
+        setTimeout(function () {
+          copysuccess.style.display = 'none'
+        }, 2000)
+        var code = $(this).parent().find(".code")[0].innerText
+          
+                var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+          
+                  if (result) $(this).text('复制成功')
+            else $(this).text('复制失败')
+              
+                $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制代码')
+        }, 1000)
+      }).append(e)
+    })
+  })
+</script>
+
+				<div id="copysuccess">复制成功<br>欢迎阅读文章~</div>
+	</body>
+
+</html>
+
+<script>
+	$('#to-top').click(function () { $('html,body').animate({ scrollTop: '0px' }, 500); return false; });
+</script>
