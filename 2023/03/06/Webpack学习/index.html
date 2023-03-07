@@ -218,7 +218,7 @@
 <li> 配置出口入口</li>
 </ol>
 <p>文件目录  </p>
-<img src="/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/a.png" class title="文件目录">
+<img src="/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/a.png" class title="文件目录">
 
 <ol>
 <li> 创建webpack.config.js文件</li>
@@ -381,10 +381,10 @@
 <p>例：对prod.config,js进行合并</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const uglifyjsPlugin = require(&#x27;uglifyjs-webpack-plugin&#x27;)</span><br><span class="line">const webpackMerge = require(&#x27;webpack-merge&#x27;)</span><br><span class="line">const baseConfig = require(&#x27;./base.config&#x27;)</span><br><span class="line"></span><br><span class="line">module.exports = webpackMerge(baseConfig, &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        new uglifyjsPlugin()</span><br><span class="line">    ],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h1 id="十、打包时出现的一些错误"><a href="#十、打包时出现的一些错误" class="headerlink" title="十、打包时出现的一些错误"></a>十、打包时出现的一些错误</h1><h3 id="1-没有引用对应loader"><a href="#1-没有引用对应loader" class="headerlink" title="1.没有引用对应loader"></a>1.没有引用对应loader</h3><img src="/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/b.png" class title="没有引用对应loader">
+<h1 id="十、打包时出现的一些错误"><a href="#十、打包时出现的一些错误" class="headerlink" title="十、打包时出现的一些错误"></a>十、打包时出现的一些错误</h1><h3 id="1-没有引用对应loader"><a href="#1-没有引用对应loader" class="headerlink" title="1.没有引用对应loader"></a>1.没有引用对应loader</h3><img src="/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/b.png" class title="没有引用对应loader">
 
 <p>解决：下载对应loader包</p>
-<h3 id="2-版本不一致"><a href="#2-版本不一致" class="headerlink" title="2.版本不一致"></a>2.版本不一致</h3><img src="/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/c.png" class title="版本不一致">
+<h3 id="2-版本不一致"><a href="#2-版本不一致" class="headerlink" title="2.版本不一致"></a>2.版本不一致</h3><img src="/2023/03/06/Webpack%E5%AD%A6%E4%B9%A0/c.png" class title="版本不一致">
 
 <p>解决：安装对应的版本：npm install –save-dev less-loader@版本 less@版本</p>
 <h3 id="3-图片不显示"><a href="#3-图片不显示" class="headerlink" title="3.图片不显示"></a>3.图片不显示</h3><ol>
@@ -456,7 +456,7 @@
     <div id="tcomment"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.0.0/dist/twikoo.all.min.js"></script>
-<script>twikoo.init({ envId: 'shuxhan-2gcz5b7m7f845ec3', el: '#tcomment' })</script>
+<script>twikoo.init({ envId: 'pika-2gcz5b7m7f845ec3', el: '#tcomment' })</script>
 
     <div class="right-icon">
       <div id="to-valine" class="right-icon-item">
