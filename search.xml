@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>搭载阿里云图床 + typora配置实现对象存储</title>
+      <link href="/2023/03/08/%E6%90%AD%E8%BD%BD%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A-typora%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/"/>
+      <url>/2023/03/08/%E6%90%AD%E8%BD%BD%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A-typora%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="搭载阿里云图床-typora配置实现对象存储"><a href="#搭载阿里云图床-typora配置实现对象存储" class="headerlink" title="搭载阿里云图床 + typora配置实现对象存储"></a>搭载阿里云图床 + typora配置实现对象存储</h1><h2 id="首先创建对象储存OSS"><a href="#首先创建对象储存OSS" class="headerlink" title="首先创建对象储存OSS"></a>首先创建对象储存OSS</h2><ol><li>打开阿里云官网 -&gt; 点击控制台 -&gt; 选择对象储存OSS</li></ol><p><img src="https://pikaxg.oss-cn-hongkong.aliyuncs.com/images/image-20230308162659877.png" alt="image-20230308162659877"></p><ol start="2"><li>创建Bucket</li></ol><p><img src="https://pikaxg.oss-cn-hongkong.aliyuncs.com/images/image-20230308162754201.png" alt="image-20230308162754201"></p><ol start="3"><li>填写Bucket相关信息</li></ol><p><img src="https://pikaxg.oss-cn-hongkong.aliyuncs.com/images/image-20230308163009266.png" alt="image-20230308163009266"></p><p>注意：读写权限选择公共读写，然后点击确定</p><p><img src="https://pikaxg.oss-cn-hongkong.aliyuncs.com/images/image-20230308163143798.png" alt="image-20230308163143798"></p><ol start="4"><li>开通完后购买资源包（很便宜半年5块钱）</li></ol><p><img src="https://pikaxg.oss-cn-hongkong.aliyuncs.com/images/image-20230308163427273.png" alt="image-20230308163427273"></p><ol start="5"><li>下载typroa</li></ol><ol start="6"><li>下载完成后打开软件，点击文件-&gt;偏好设置-&gt;图像-&gt;然后如下图所示操作</li></ol><p><img src="https://pikaxg.oss-cn-hongkong.aliyuncs.com/images/image-20230308164007916.png" alt="image-20230308164007916"></p><ol start="7"><li>设置配置文件</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;picBed&quot;: &#123;</span><br><span class="line">      &quot;uploader&quot;: &quot;aliyun&quot;,</span><br><span class="line">      &quot;aliyun&quot;: &#123;</span><br><span class="line">      &quot;accessKeyId&quot;: &quot;&quot;, //ram的accessKey</span><br><span class="line">      &quot;accessKeySecret&quot;: &quot;&quot;, //ram的accessKey</span><br><span class="line">      &quot;bucket&quot;: &quot;&quot;, // bucket名</span><br><span class="line">      &quot;area&quot;: &quot;&quot;, // 地域节点（.aliyuncs.com前面的部分）</span><br><span class="line">      &quot;path&quot;: &quot;img/&quot;, // 存储路径</span><br><span class="line">       &quot;customUrl&quot;: &quot;&quot;, // Bucket域名，注意要加 http://或者 https://</span><br><span class="line">       &quot;options&quot;: &quot;&quot; // 针对图片的一些后缀处理参数 PicGo 2.2.0+ PicGo-Core 1.4.0+</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;picgoPlugins&quot;: &#123;&#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><ul><li>首先是配置accessKey</li></ul><p><img src="https://pikaxg.oss-cn-hongkong.aliyuncs.com/images/image-20230308164554856.png" alt="image-20230308164554856"></p><p><img src="/2023/03/08/%E6%90%AD%E8%BD%BD%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A-typora%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/Users\14359\AppData\Roaming\Typora\typora-user-images\image-20230308170105181.png" alt="image-20230308170105181"></p><ul><li>然后是配置bucket、area、customUrl</li></ul><p><img src="https://pikaxg.oss-cn-hongkong.aliyuncs.com/images/image-20230308164443397.png" alt="image-20230308164443397"></p><ol start="8"><li>验证配置，点击验证图片上传选项，验证成功后可以上阿里云控制台查看是否多出两张图片</li></ol><p><img src="https://pikaxg.oss-cn-hongkong.aliyuncs.com/images/image-20230308165518060.png" alt="image-20230308165518060"></p><ol start="9"><li>上传图片</li></ol><p>​    配置成功后就可以通过新建typora文档，使用复制粘贴或者上拉图片的方式上传到阿里云图床啦！</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 阿里云 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Css3学习</title>
       <link href="/2023/03/07/Css3%E5%AD%A6%E4%B9%A0/"/>
       <url>/2023/03/07/Css3%E5%AD%A6%E4%B9%A0/</url>
